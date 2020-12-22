@@ -48,7 +48,7 @@ bot.on('inline_query', async (ctx) => {
       inline_keyboard: [
         [{
           text: "Ver anime",
-          url: "https://t.me/Amadeus_Project_Bot?start="+anime._id
+          url: "https://t.me/User do seu bot?start="+anime._id
         }]
       ]
     }
