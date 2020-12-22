@@ -1,0 +1,11 @@
+{
+  "name": "botanime",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^5.11.8",
+    "node-telegram-bot-api": "^0.50.0",
+    "telegraf": "^3.38.0"
+  }
+}
