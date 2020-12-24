@@ -1,15 +1,24 @@
-require('dotenv').config()
+require('dotenv').config();
 
 const TelegramBot = require("node-telegram-bot-api");
-const bot = new TelegramBot(process.env.TOKEN,{polling: true})
-
-const animes = require("./utils/animes")
-const model = require("./schema/index");
-const text = require("./utils/Texts");
+//const bot = new TelegramBot(process.env.TOKEN,{polling: true})
+const bot = new TelegramBot("1297501081:AAFGsy3PkOyfBZksaGEgRzPyDoDvgms9D1w",{polling: true});
 const call = require("./callbacks/Callbacks");
-const start = require("./utils/start")
+const animes = require("./utils/animes");
+const ChatPrivate = require("./message/ChatPrivate");
 
-bot.onText(/\/start (.*)/, start(bot))
+const text = require("./utils/Texts");
+const start = require("./utils/start");
+
+bot.onText(/\/start (.*)/, start(bot));
+
+bot.on("message",async(ctx)=>{
+  if(ctx.chat.type == "private"){
+    const reply = new ChatPrivate(bot);
+    reply.chatPrivateAnime(ctx)
+  }
+  
+});
 
 bot.on("callback_query",async(ctx)=>{
   const data = ctx.data;

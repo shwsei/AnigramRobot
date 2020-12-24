@@ -1,17 +1,5 @@
 const model = require("../schema/index");
 
-
-
-// name: String,
-// description: String,
-// genre: String,
-// eps: Array,
-// image: String,
-// mal: String,
-// idMal: String,
-// type: String,
-// year: String,
-
 class Animes{
 
 	async searchAnime(name){
@@ -20,7 +8,7 @@ class Animes{
 		return animes
 	}
 
-	async createAnime(name,description,genre,image,eps,mal,idMal,type){
+	async createAnime(name,description,genre,image,eps,mal,idMal,type,year){
 		try{
 
 			const search = this.searchAnime(name)
@@ -32,10 +20,11 @@ class Animes{
 					description,
 					genre,
 					image,
-					eps: [eps],
+					eps: eps,
 					mal,
 					idMal,
-					type
+					type,
+					year
 				}).save();
 
 				return true;
