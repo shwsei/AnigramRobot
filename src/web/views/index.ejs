@@ -1,0 +1,12 @@
+<%- include('partials/header.ejs'); %>
+<%- include('partials/navbar.ejs'); %>
+<section class="container">
+  <% animes.forEach(anime=>{ %>
+    <div class="card" style="width: 18rem;">
+      <img src="<%=anime.image%>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text"><%=anime.name%></p>
+      </div>
+    </div>
+  <%})%>
+</section>
